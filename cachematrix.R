@@ -1,7 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+## makeCacheMatrix function creates a new cachable matrix which will
+## store its inverse. Having all functions as list is a very good trick,
+## so that you can access it via x$set() or x$get()
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -18,7 +17,12 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## this part is interesting.. 
+## cacheSolve function checks if the passed modified matrix has its inverse
+## stored by calling x$getinv() function
+## if the result is not null, yay! it is a cache hit...
+## else, it calculates the inverse of the matrix and stores it for 
+## future use in the matrix itself by x$setinv(inv) function.
 
 cacheSolve <- function(x, ...) { 
   inv <- x$getinv()
